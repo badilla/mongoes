@@ -1,0 +1,31 @@
+[
+    {
+        '$search': {
+            'index': 'default', 
+            'compound': {
+                'should': [
+                    {
+                        'autocomplete': {
+                            'query': 'humen hatjek', 
+                            'path': 'study.species', 
+                            'fuzzy': {
+                                'maxEdits': 1
+                            }
+                        }
+                    }, {
+                        'autocomplete': {
+                            'query': 'human hatjek', 
+                            'path': 'study.user'
+                        }
+                    }, {
+                        'autocomplete': {
+                            'query': 'human hatjek', 
+                            'path': 'study.study_disease'
+                        }
+                    }
+                ], 
+                'minimumShouldMatch': 2
+            }
+        }
+    }
+]
